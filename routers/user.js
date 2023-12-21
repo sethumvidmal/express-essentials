@@ -1,18 +1,17 @@
-const express  = require('express');
+const express = require('express');
 const router = express.Router();
 
 router.route('/')
-.get((req,res)=>{
-    res.send({
-        'msg':'Get api works!',
-        'id':req.id
+    .get((req, res) => {
+        res.send({
+            'msg': 'user Get api works!'
+        })
     })
-})
-.post((req,res)=>{
-    res.send({
-        'msg':'Post api works!',
-        'data':req.body
-    })
-});
+    .post((req, res) => {
+        res.send({
+            'msg': 'user Post api works!',
+            'data': req.body
+        })
+    });
 
 module.exports = router;

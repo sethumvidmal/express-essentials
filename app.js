@@ -9,9 +9,9 @@ app.use(morgan('tiny'));
 app.use('/api/users', user);
 app.use('/api/student', student);
 
-const port =process.env.PORT || 3000; // You can use any available port
+const port = process.env.PORT || 3000; // You can use any available port
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+    console.log(`Server is running on port ${port}`);
 });
