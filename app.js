@@ -5,7 +5,9 @@ const student = require('./routers/student');
 const morgan = require('morgan');
 
 app.use(express.json());
-app.use(morgan('tiny'));
+if (app.get('env')==='development'){
+    app.use(morgan('dev'));
+}
 app.use('/api/users', user);
 app.use('/api/student', student);
 
