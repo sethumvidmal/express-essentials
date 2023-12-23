@@ -13,7 +13,7 @@ git clone https://github.com/sethumvidmal/express-essentials.git
 ```bash
 npm install
 ```
-### 3. Run the Application
+#### 3. Run the Application
 ```bash
 npm run dev
 ```
