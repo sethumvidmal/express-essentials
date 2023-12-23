@@ -9,7 +9,11 @@ Welcome to my Express.js project! Follow the steps below to set up the project o
 ```bash
 git clone https://github.com/sethumvidmal/express-essentials.git
 ```
-#### 2. Clone the Repository
+#### 2. Install Dependencies
 ```bash
 npm install
+```
+### 3. Run the Application
+```bash
+npm run dev
 ```
