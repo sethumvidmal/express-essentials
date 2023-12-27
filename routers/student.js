@@ -65,5 +65,21 @@ router.put('/:id', (req, res) => {
         }
     });
 });
+router.delete('/:id', (req, res) => {
+    const studentId = req.params.id; // Get the student ID from the path variable
+
+    let sqlDelete = `DELETE FROM student_entity WHERE id = ?`;
+    const values = [studentId];
+
+    db.query(sqlDelete, values, (err, result) => {
+        if (err) {
+            throw err;
+        } else {
+            res.json({
+                message: 'Student deleted successfully'
+            });
+        }
+    });
+});
 
 module.exports = router;
