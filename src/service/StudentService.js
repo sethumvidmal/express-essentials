@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const db = require('../config/db-config');
-router.get('/', (req, res) => {
+const db = require('../../config/db-config');
+
+//GET
+const getAllStudents = (req, res) => {
     let sqlGetAll = 'SELECT * FROM student_entity';
     db.query(sqlGetAll, (err, data, fields) => {
         if (err) {
@@ -13,8 +13,10 @@ router.get('/', (req, res) => {
             data: data
         });
     });
-});
-router.post('/', (req, res) => {
+};
+
+//POST
+const createStudent = (req, res) => {
     const {age, address, first_name, gender, last_name, nic} = req.body;
     if (!age || !address || !first_name || !gender || !last_name || !nic) {
         return res.status(400).json({
@@ -33,8 +35,10 @@ router.post('/', (req, res) => {
             });
         }
     });
-});
-router.put('/:id', (req, res) => {
+};
+
+//PUT
+const updateStudent = (req, res) => {
     const studentId = req.params.id;  // Get the student ID from the path variable
     const {age, address, first_name, gender, last_name, nic} = req.body;
 
@@ -64,8 +68,10 @@ router.put('/:id', (req, res) => {
             });
         }
     });
-});
-router.delete('/:id', (req, res) => {
+};
+
+//DELETE
+const removeStudent = (req, res) => {
     const studentId = req.params.id; // Get the student ID from the path variable
 
     let sqlDelete = `DELETE FROM student_entity WHERE id = ?`;
@@ -80,6 +86,11 @@ router.delete('/:id', (req, res) => {
             });
         }
     });
-});
+};
 
-module.exports = router;
+module.exports = {
+    getAllStudents,
+    createStudent,
+    updateStudent,
+    removeStudent
+};

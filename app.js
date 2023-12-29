@@ -1,11 +1,11 @@
 const express = require('express');
-const user = require('./routers/user');
-const student = require('./routers/student');
+const routers = require('./src/routers/Routers');
 const app = express();
 // Middlewares
-const morgan = require('morgan');
-const cors = require('cors');
-const bodyParser = require('body-parser');
+const morgan = require('morgan'); //	HTTP request logger.
+const cors = require('cors'); // Enable cross-origin
+const bodyParser = require('body-parser'); // Parse HTTP request body
+
 // Port config
 const port = process.env.PORT || 3000;
 
@@ -16,8 +16,7 @@ if (app.get('env') === 'development') {
     app.use(morgan('dev'));
 }
 
-app.use('/api/users', user);
-app.use('/api/student', student);
+app.use('/api', routers);
 
 // Start the server
 app.listen(port, () => {
